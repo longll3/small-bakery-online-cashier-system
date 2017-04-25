@@ -1,0 +1,36 @@
+.left_td {
+	width: 50px;
+}
+
+.layui-nav-tree {
+	width: 100px;
+}
+
+.layui-nav {
+	background-color: #457d98;
+}
+.left_td {
+	width: 50px;
+}
+
+#reg {
+	left: -5%;
+	width: inherit;
+}
+
+table {
+	margin-top: 10%;
+    font-size: 20px;
+}
+.btn[disabled] {
+	color: #12353a;
+    background-color: #98b1c5;
+}
+
+#notice {
+	position: relative;
+    margin-left: 38%;
+    font-size: 20px;
+    /* left: -5%; */
+    margin-top: 5%;
+}

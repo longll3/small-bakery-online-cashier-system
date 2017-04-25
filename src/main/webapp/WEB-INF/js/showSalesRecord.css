@@ -1,0 +1,46 @@
+#queryButton {
+	font-size: 20px;	
+}
+
+#textInput {
+	font-size: 22px;
+}
+
+#form1 {
+	margin-top: 2%;
+}
+
+#textInput {  
+ margin-top: 10px;  
+}  
+#tableResult {  
+ margin-right: auto;  
+ margin-left: auto;  
+ width:600px;  
+} 
+
+#queryDiv {  
+ margin-right: auto;  
+ margin-left: auto;  
+ width:600px;
+ position: fixed;
+ top: 2%;
+ left: 37%;
+}
+
+#queryMethod {
+	margin-left: 37%;
+    margin-top: 5%;
+}
+
+.layui-nav-tree {
+	width: 100px;
+}
+
+.layui-nav {
+	background-color: #457d98;
+}
+#selectBox {
+    margin-left: 37%;
+    margin-top: 5%;
+}

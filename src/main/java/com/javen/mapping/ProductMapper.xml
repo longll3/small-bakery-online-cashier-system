@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.javen.dao.ProductMapper" >
+  <resultMap id="BaseResultMap" type="com.javen.model.Product" >
+    <id column="product_id" property="productId" jdbcType="INTEGER" />
+    <result column="product_name" property="productName" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="quality_guarantee_period" property="qualityGuaranteePeriod" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    product_id, product_name, price, description, quality_guarantee_period
+  </sql>
+  
+  <select id="selectByProduct" resultMap="BaseResultMap" parameterType="com.javen.model.Product">
+  	select <include refid="Base_Column_List" />
+	from t_products
+	where product_name = #{productName,jdbcType=VARCHAR} and description=#{description,jdbcType=VARCHAR}
+  </select>
+  
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_products
+    where product_id = #{productId,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByProductName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    SELECT *
+    FROM t_products
+    WHERE 1 = 1
+    <if test="productName != null and productName != ''">
+    	AND product_name = #{productName, jdbcType=VARCHAR}
+    </if>
+    ORDER BY product_id
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from t_products
+    where product_id = #{productId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.javen.model.Product" >
+    insert into t_products (product_id, product_name, price, 
+      description, quality_guarantee_period)
+    values (#{productId,jdbcType=INTEGER}, #{productName,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{description,jdbcType=VARCHAR}, #{qualityGuaranteePeriod,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.javen.model.Product" >
+    insert into t_products
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="productId != null" >
+        product_id,
+      </if>
+      <if test="productName != null" >
+        product_name,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="qualityGuaranteePeriod != null" >
+        quality_guarantee_period,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="productId != null" >
+        #{productId,jdbcType=INTEGER},
+      </if>
+      <if test="productName != null" >
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="qualityGuaranteePeriod != null" >
+        #{qualityGuaranteePeriod,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.javen.model.Product" >
+    update t_products
+    <set >
+      <if test="productName != null" >
+        product_name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="qualityGuaranteePeriod != null" >
+        quality_guarantee_period = #{qualityGuaranteePeriod,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where product_id = #{productId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.javen.model.Product" >
+    update t_products
+    set product_name = #{productName,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      description = #{description,jdbcType=VARCHAR},
+      quality_guarantee_period = #{qualityGuaranteePeriod,jdbcType=VARCHAR}
+    where product_id = #{productId,jdbcType=INTEGER}
+  </update>
+</mapper>

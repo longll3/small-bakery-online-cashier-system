@@ -1,0 +1,12 @@
+.form-signin {
+	max-width: 300px;
+	margin: 10% auto;
+}
+
+h2 {
+	color: #4e6290;
+}
+
+.form-signin button {
+	margin-top: 3px;
+}

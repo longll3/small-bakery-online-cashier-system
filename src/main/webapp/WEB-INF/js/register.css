@@ -1,0 +1,25 @@
+.btn-default {
+	color:#337ab7;
+	border-color:rgba(204,204,204,0);
+}
+
+.glyphicon {
+	line-height: 0.48;
+}
+
+.anniu {
+	font-family:"Arial", "Microsoft YaHei", sans-serif !important;
+	color:#0b589a;
+}
+
+#confirm {
+	margin:5px auto;
+}
+
+#reg {
+	margin:0 auto;
+    position: relative;
+/*     left: 20%; */
+    top: 50px;
+    width: 20%;
+}
